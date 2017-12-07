@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeonTicaret.WebUI", "ZeonTicaret.WebUI\ZeonTicaret.WebUI.csproj", "{B443219B-8195-4CF3-8C1C-0D75CB9723F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B443219B-8195-4CF3-8C1C-0D75CB9723F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B443219B-8195-4CF3-8C1C-0D75CB9723F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B443219B-8195-4CF3-8C1C-0D75CB9723F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B443219B-8195-4CF3-8C1C-0D75CB9723F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {159D0B6E-BD96-4807-A7D0-082FF7D8A21C}
+	EndGlobalSection
+EndGlobal
