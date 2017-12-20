@@ -3,6 +3,45 @@
     ViewBag.Title =@Model.Adi+ "-Zeon Ticaret ";
     Layout = "~/Views/Shared/SiteLayout.cshtml";
 }
+@section head{
+    <script src="~/Content/Zeon/js/jquery-1.10.0.min.js"></script>
+<script>
+    $(document).ready(function myfunction() {
+        $(".sepeteAt").click(function myfunction() {
+            var uid = $(this).attr("name");
+            $.ajax({
+                type: "GET",
+                url: "/Home/SepeteEkle",
+                data: { id: uid },
+                success: function myfunction() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/Home/MiniSepetWidget",
+                        success: function VeriGetir(veri) {
+                            $(".cart-all").html("");
+                            $(".cart-all").html(veri);
+                            alert("Ürün Sepete Eklendi");
+                        }
+
+
+                    })
+                },
+                error: function myfunction() {
+                    alert("Ürün Sepete Eklenemedi");
+                }
+
+
+            });
+        });
+    })
+</script>
+
+    
+    
+    
+    }
+
+
 @model ZeonTicaret.WebUI.Urun
 
 <div class="product-one">
@@ -35,51 +74,48 @@
             </div>
             <div class="col-md-6">
                 <h2>@Model.Adi</h2>
+                @foreach (ZeonTicaret.WebUI.OzellikTip tip in ViewBag.OzellikTipler)
+                {
+                    <div class="sort-dropdown">
+                        <span>@tip.Adi <i class="icon-515" title="515"></i></span>
+                        <ul>
+                            @foreach (var deger in tip.OzellikDeger)
+                            {
+                                <li><a href="#">@deger.Adi</a></li>
+                            }
+                           
+                        </ul>
+                    </div>
+                }
+
                 
-                <div class="sort-dropdown">
-                    <span>Boyut <i class="icon-515" title="515"></i></span>
-                    <ul>
-                        <li><a href="#">XS</a></li>
-                        <li><a href="#">S</a></li>
-                        <li><a href="#">M</a></li>
-                        <li><a href="#">L</a></li>
-                        <li><a href="#">XL</a></li>
-                        <li><a href="#">XXL</a></li>
-                        <li><a href="#">XXXL</a></li>
-                    </ul>
-                </div>
                 <div class="clear"></div>
                 <div class="quantity">
                     <input type="button" value="-" class="minus">
-                    <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text">
+                    <input type="number" step="1" min="1" name="Adet" value="1" title="Qty" class="input-text qty text">
                     <input type="button" value="+" class="plus">
-                    <span>10 sold / 12 available</span>
+                   
                 </div>
                 <hr />
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="product-price">PRICE : <span>$170</span> $150</div>
+                        <div class="product-price">Fiyat : @Model.SatisFiyati.ToString("C2")</div>
                     </div>
                     <div class="col-md-6">
-                        <a href="#" class="button-2">add to shopping bag</a>
-                        <a href="#" class="button-3">add to wishlist</a>
+                        <a href="#" class="button-2 sepeteAt" name="@Model.Id">Sepete Ekle</a>
+                      
                     </div>
                 </div>
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
+                    <li class="active"><a href="#description" data-toggle="tab">Açıklama</a></li>
                     <li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="description">
-                        <p>Sed bibendum cursus lacus, quis luctus libero aliquam nec. Praesent egestas leo mi, eu laoreet libero mattis sed. Curabitur leo nulla, eleifend quis consequat vitae, feugiat sit amet massa.</p>
-                        <ul class="product-details">
-                            <li>Weight - 2 kg</li>
-                            <li>Color - red</li>
-                            <li>Category - dress</li>
-                            <li>tags - <a href="#">dress</a>, <a href="#">red</a>, <a href="#">woman</a></li>
-                        </ul>
+                        <p>@Model.Aciklama</p>
+                        
                         <ul class="social-share">
-                            <li><span>Share</span></li>
+                            <li><span>Paylaş</span></li>
                             <li><a href="#"><i class="icon-160" title="161"></i></a></li>
                             <li><a href="#"><i class="icon-138" title="161"></i></a></li>
                             <li><a href="#"><i class="icon-106" title="161"></i></a></li>
@@ -87,24 +123,7 @@
                             <li><a href="#"><i class="icon-163" title="161"></i></a></li>
                         </ul>
                     </div>
-                    <div class="tab-pane" id="reviews">
-                        <div class="product-review">
-                            <div class="product-review-avatar">
-                                <img src="images/elements/testimonial-avatar.jpg" alt="avatar" />
-                            </div>
-                            <div class="product-review-author">Jane Doe <span>12 Jan</span></div>
-                            <p>I like the item very much, it is so on my size and it looks great.</p>
-                        </div>
-
-                        <div class="product-review">
-                            <div class="product-review-avatar">
-                                <img src="images/elements/testimonial-avatar.jpg" alt="avatar" />
-                            </div>
-                            <div class="product-review-author">Jane Doe <span>10 Jan</span></div>
-                            <p>It is so on my size, i like the item very much, it is so on my size and it looks great i like it a lot It is so on my size, i like the item very much, it is so on my size and it looks great.</p>
-                        </div>
-                        <a href="#" class="button-6" data-toggle="modal" data-target="#write-review">Write a review</a>
-                    </div>
+                    
                 </div>
             </div>
         </div>

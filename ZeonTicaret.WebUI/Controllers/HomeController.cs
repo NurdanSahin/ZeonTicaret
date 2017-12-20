@@ -78,8 +78,10 @@ namespace ZeonTicaret.WebUI.Controllers
         public ActionResult UrunDetay(string id)
         {
             Urun u = Context.Baglanti.Urun.FirstOrDefault(x => x.Adi == id);
-            return View(u);
+            List<UrunOzellik> uos = Context.Baglanti.UrunOzellik.Where(x => x.UrunId == u.Id).ToList();
+        
 
+            return View(u);
         }
     }
 }
