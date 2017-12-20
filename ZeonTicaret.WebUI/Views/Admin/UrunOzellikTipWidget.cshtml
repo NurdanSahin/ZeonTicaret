@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ZeonTicaret.WebUI.OzellikTip>
+
+<script src="~/Content/Admin/js/jquery-1.8.3.min.js"></script>
+<script>
+    $("#tipler").change(function myfunction() {
+        var id = $(this).val();
+     
+
+        $.ajax({
+            type: "GET",
+            url: "/Admin/UrunOzellikDegerWidget",
+            data: { TipId: id },
+            success: function myfunction(veri) {
+                $("#deger").html('');
+                $("#deger").append(veri);
+            },
+            error: function myfunction() {
+
+            }
+        });
+    })
+</script>
+<div class="form-group">
+    <label class="col-lg-2 control-label">Özellik Tip:</label>
+    <div class="col-lg-10">
+        <select class="form-control m-bot15" name="OzellikTipiID" id="tipler">
+            @foreach (var tip in Model)
+            {
+                <option value="@tip.Id">@tip.Adi</option>
+            }
+        </select>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title =@Model.Adi+ "-Zeon Ticaret ";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+@model ZeonTicaret.WebUI.Urun
+
+<div class="product-one">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="the-slider product-big-image" data-tesla-plugin="slider" data-tesla-item=".slide" data-tesla-next=".product-image-arrows-right" data-tesla-prev=".product-image-arrows-left" data-tesla-container=".slide-wrapper">
+                    <ul class="product-image-arrows">
+                        <li class="product-image-arrows-left"><i class="icon-517" title="left"></i></li>
+                        <li class="product-image-arrows-right"><i class="icon-501" title="right"></i></li>
+                    </ul>
+                    <ul class="slide-wrapper">
+                        @foreach (var item in Model.Resim)
+                        {
+                            <li class="slide"><img src="@item.BuyukYol" alt="@Model.Adi" /></li>
+                        }
+                      
+                   
+                    </ul>
+                    <div class="row">
+                        <ul class="the-bullets-dots" data-tesla-plugin="bullets">
+                            @foreach (var item in Model.Resim)
+                            {
+                                <li><div class="col-md-2 col-xs-2"><img src="@item.OrtaYol" alt="@Model.Adi" /></div></li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>@Model.Adi</h2>
+                
+                <div class="sort-dropdown">
+                    <span>Boyut <i class="icon-515" title="515"></i></span>
+                    <ul>
+                        <li><a href="#">XS</a></li>
+                        <li><a href="#">S</a></li>
+                        <li><a href="#">M</a></li>
+                        <li><a href="#">L</a></li>
+                        <li><a href="#">XL</a></li>
+                        <li><a href="#">XXL</a></li>
+                        <li><a href="#">XXXL</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="quantity">
+                    <input type="button" value="-" class="minus">
+                    <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text">
+                    <input type="button" value="+" class="plus">
+                    <span>10 sold / 12 available</span>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-price">PRICE : <span>$170</span> $150</div>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="#" class="button-2">add to shopping bag</a>
+                        <a href="#" class="button-3">add to wishlist</a>
+                    </div>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
+                    <li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="description">
+                        <p>Sed bibendum cursus lacus, quis luctus libero aliquam nec. Praesent egestas leo mi, eu laoreet libero mattis sed. Curabitur leo nulla, eleifend quis consequat vitae, feugiat sit amet massa.</p>
+                        <ul class="product-details">
+                            <li>Weight - 2 kg</li>
+                            <li>Color - red</li>
+                            <li>Category - dress</li>
+                            <li>tags - <a href="#">dress</a>, <a href="#">red</a>, <a href="#">woman</a></li>
+                        </ul>
+                        <ul class="social-share">
+                            <li><span>Share</span></li>
+                            <li><a href="#"><i class="icon-160" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-138" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-106" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-169" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-163" title="161"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="reviews">
+                        <div class="product-review">
+                            <div class="product-review-avatar">
+                                <img src="images/elements/testimonial-avatar.jpg" alt="avatar" />
+                            </div>
+                            <div class="product-review-author">Jane Doe <span>12 Jan</span></div>
+                            <p>I like the item very much, it is so on my size and it looks great.</p>
+                        </div>
+
+                        <div class="product-review">
+                            <div class="product-review-avatar">
+                                <img src="images/elements/testimonial-avatar.jpg" alt="avatar" />
+                            </div>
+                            <div class="product-review-author">Jane Doe <span>10 Jan</span></div>
+                            <p>It is so on my size, i like the item very much, it is so on my size and it looks great i like it a lot It is so on my size, i like the item very much, it is so on my size and it looks great.</p>
+                        </div>
+                        <a href="#" class="button-6" data-toggle="modal" data-target="#write-review">Write a review</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
